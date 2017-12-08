@@ -25,41 +25,25 @@
         <footer style="position:absolute;bottom:0;width:100%;">
             <div style="background:white;padding:20px;border-top: 2px solid #303F9F;">
                 <div class="row">
-                    <div> Kelurahan : X, 
-                        <span> Kecamatan : X </span>
+                    <div> Kelurahan : Kemanggisan, 
+                        <span> Kecamatan : Palmerah </span>
                     </div>
                 </div>
                 <div> &nbsp </div>
                 <div class="row">
                     <div> Status : </div>
-                    <div> SIAGA </div>
+                    <div> Normal </div>
                 </div>
                 <div> &nbsp </div>
                 <div class="row">
                     <div> Kemungkinan banjir : </div>
-                    <div> XX % </div>
+                    <div> 1 % </div>
                 </div>
             </div>
         </footer>
 
         <script>
             var citymap = {
-                Jakarta: { 
-                center: {lat: -6.200170, lng: 106.785055},
-                population: 2714856
-                },
-                newyork: {
-                center: {lat: 40.714, lng: -74.005},
-                population: 8405837
-                },
-                losangeles: {
-                center: {lat: 34.052, lng: -118.243},
-                population: 3857799
-                },
-                vancouver: {
-                center: {lat: 49.25, lng: -123.1},
-                population: 603502
-                }
             };
             
             function callAPI() {
