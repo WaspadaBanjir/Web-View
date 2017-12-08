@@ -25,8 +25,8 @@
         <footer style="position:absolute;bottom:0;width:100%;">
             <div style="background:white;padding:20px;border-top: 2px solid #303F9F;">
                 <div class="row">
-                    <div> Kelurahan : Kemanggisan, 
-                        <span> Kecamatan : Palmerah </span>
+                    <div> Kelurahan : Gambir, 
+                        <span> Kecamatan : Gambir </span>
                     </div>
                 </div>
                 <div> &nbsp </div>
@@ -37,7 +37,7 @@
                 <div> &nbsp </div>
                 <div class="row">
                     <div> Kemungkinan banjir : </div>
-                    <div> 1 % </div>
+                    <div> 4 % </div>
                 </div>
             </div>
         </footer>
@@ -59,9 +59,20 @@
             function initMap() {
                 // Create the map.
                 var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: {lat: -6.200170, lng: 106.785055},
+                zoom: 15,
+                center: {lat: -6.181210, lng: 106.828834},
                 mapTypeId: 'terrain'
+                });
+                
+                var cityCircle = new google.maps.Circle({
+                    strokeColor: '#003300',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#009933',
+                    fillOpacity: 0.35,
+                    map: map,
+                    center: {lat: -6.181210, lng: 106.828834},
+                    radius: 1000 * 1
                 });
 
                 // Construct the circle for each value in citymap.
