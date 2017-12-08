@@ -12,4 +12,10 @@ class PinpointController extends Controller
         return view('pinpoint');
     }
 
+    public function license()
+    {
+        return view('license');
+    }
+
+
 }

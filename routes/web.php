@@ -18,6 +18,7 @@ Route::get('/register', 'UserController@register');
 Route::get('/fail', 'UserController@fail')->name('fail');
 
 Route::get('/pinpoint', 'PinpointController@index');
+Route::get('/license', 'PinpointController@license');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
