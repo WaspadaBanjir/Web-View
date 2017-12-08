@@ -22,43 +22,40 @@
     <body>
         <div id="map"></div>
 
-        <footer style="position:absolute;bottom:0;width:100%;">
+        <footer style="position:absolute;bottom:0;width:100%;">(
             <div style="background:white;padding:20px;border-top: 2px solid #303F9F;">
-                <div class="row">
-                    <div> Kelurahan : X, 
-                        <span> Kecamatan : X </span>
-                    </div>
+                <!-- <div style="width:30px; height:30px; border-radius:20px; background:red;" onclick="addPinpoint()">
+                    <img src="/resources/assets/ic_add_black_24dp.png" /> 
+                </div> -->
+                <div class="row" style="padding:10px; background:#000066; color:white;">
+                    <div> Gunung Sahari </div>
+                    <div> SIAGA 1 </div>
                 </div>
                 <div> &nbsp </div>
-                <div class="row">
-                    <div> Status : </div>
-                    <div> SIAGA </div>
-                </div>
-                <div> &nbsp </div>
-                <div class="row">
-                    <div> Kemungkinan banjir : </div>
-                    <div> XX % </div>
+                <div class="row" style="padding:10px; background:#000066; color:white;">
+                    <div> Tanah Abang </div>
+                    <div> SIAGA 1 </div>
                 </div>
             </div>
         </footer>
 
         <script>
             var citymap = {
-                Jakarta: { 
-                center: {lat: -6.200170, lng: 106.785055},
-                population: 2714856
+                Petamburan_Baru: { 
+                center: {lat: -6.157261, lng: 106.787668},
+                population: 100000
                 },
-                newyork: {
-                center: {lat: 40.714, lng: -74.005},
-                population: 8405837
+                Gunung_Sahari: {
+                center: {lat: -6.151887, lng: 106.837442},
+                population: 100000
                 },
-                losangeles: {
-                center: {lat: 34.052, lng: -118.243},
-                population: 3857799
+                Kebon_Kosong: {
+                center: {lat: -6.165804, lng: 106.850130},
+                population: 100000
                 },
-                vancouver: {
-                center: {lat: 49.25, lng: -123.1},
-                population: 603502
+                Tanah_Abang: {
+                center: {lat: -6.177614, lng: 106.816507},
+                population: 100000
                 }
             };
             
@@ -72,31 +69,48 @@
                 });
             }
 
+            function addPinpoint() {
+
+            }
+
             function initMap() {
                 // Create the map.
                 var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
-                center: {lat: -6.200170, lng: 106.785055},
+                center: {lat: -6.181151, lng: 106.828768},
                 mapTypeId: 'terrain'
                 });
 
                 // Construct the circle for each value in citymap.
                 // Note: We scale the area of the circle based on the population.
                 for (var city in citymap) {
-                // Add the circle for this city to the map.
-                var cityCircle = new google.maps.Circle({
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: '#FF0000',
-                    fillOpacity: 0.35,
-                    map: map,
-                    center: citymap[city].center,
-                    radius: Math.sqrt(citymap[city].population) * 1
-                });
+                    // Add the circle for this city to the map.
+                    if(city == "Petamburan_Baru" || city == "Kebon_Kosong") {
+                        var cityCircle = new google.maps.Circle({
+                            strokeColor: '#003300',
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillColor: '#009933',
+                            fillOpacity: 0.35,
+                            map: map,
+                            center: citymap[city].center,
+                            radius: Math.sqrt(citymap[city].population) * 1
+                        });
+                    } else {
+                        var cityCircle = new google.maps.Circle({
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.35,
+                            map: map,
+                            center: citymap[city].center,
+                            radius: Math.sqrt(citymap[city].population) * 1
+                        });
+                    }
                 }
 
-infoWindow = new google.maps.InfoWindow;
+                infoWindow = new google.maps.InfoWindow;
 
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function(position) {

@@ -6,10 +6,11 @@
         <h5> &nbsp</h5>
 
         <form action="login-user" method="post">
-       
+            {{ csrf_field() }}
+
             <div class="form-group">
-                <label for="email" class="col-3">Username:</label>
-                <input type="email" class="col-3 form-control" id="username" placeholder="Username" name="email">
+                <label for="username" class="col-3">Username:</label>
+                <input type="text" class="col-3 form-control" id="username" placeholder="Username" name="username">
             </div>
 
             <div class="form-group">

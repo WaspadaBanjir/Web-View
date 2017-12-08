@@ -13,13 +13,10 @@
 
 Auth::routes();
 
-Route::get('/login', 'UserController@login')->name('login');
+Route::get('/login', 'UserController@login');
 Route::get('/register', 'UserController@register');
-Route::get('/fail', 'UserController@fail')->name('fail');
-
-Route::get('/pinpoint', 'PinpointController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/login-user', 'AccountController@login');
-Route::post('/register-user', 'AccountController@register');
+Route::post('/login-user', 'UserController@login-user');
+Route::post('/create-user', 'UserController@create-user');
